@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
     fontSize: 30,
     marginTop: 10,
-    marginLeft: 12,
+    marginLeft: 120,
   },
 
 
