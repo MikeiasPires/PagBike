@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
       fontSize: 18,
     },
     Title:{
-      fontweight: 'bold',
       marginTop:90,
       marginLeft:142,
       fontSize: 25,
@@ -49,7 +48,6 @@ export const styles = StyleSheet.create({
       height:40,
       backgroundColor:"#D9D9D9",
       borderRadius:8,
-      marginRight:1,
     },
     values:{
       display:"flex",
@@ -61,7 +59,6 @@ export const styles = StyleSheet.create({
     containerAlign:{
       display:"flex",
       flexDirection: 'row',
-      marginTop:25,
 
     },
     text:{
@@ -84,9 +81,9 @@ export const styles = StyleSheet.create({
     },
     valuex:{
         fontSize:20,
-        marginRight:10,
-
-    },  button: {
+    },  
+    
+    button: {
         color: "white",
         backgroundColor: "#72BB79",
         width:205,
@@ -105,7 +102,9 @@ export const styles = StyleSheet.create({
         flexDirection:"column",
         justifyContent:"center",
         alignItems:"center",
-        marginTop:300
+        marginTop:550,
+        marginLeft:100,
+        position: 'absolute'
       }
 
 })

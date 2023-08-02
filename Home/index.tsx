@@ -29,7 +29,7 @@ export default function Home({}){
       valuetwo:20,
       addition:5,
       image:require("../src/Bike.png"),
-      imagepag:require("../src/itemduo.png"),
+      imagepag:require("../src/Bikecart/bikesolo.png"),
       Hors:CompletHrs,
     },
     {
@@ -39,6 +39,7 @@ export default function Home({}){
       valuetwo:30,
       addition:5,
       image:require("../src/Bikeduo.png"),
+      imagepag:require("../src/Bikecart/bikeduogreen.png"),
       Hors:CompletHrs,
     },{
       id:3,
@@ -47,6 +48,7 @@ export default function Home({}){
       valuetwo:50,
       addition:10,
       image:require("../src/triciclo-familia.png"),
+      imagepag:require("../src/Bikecart/bikegreenfamily.png"),
       Hors:CompletHrs,
     }
   ]
