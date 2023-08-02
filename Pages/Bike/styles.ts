@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     height: 550,
     width: 320,
     marginLeft: 49,
-    marginTop: 14,
+    marginTop: 10,
     borderRadius: 20,
   },
 
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
     fontSize: 30,
     marginTop: 10,
-    marginLeft: 106,
+    marginLeft: 103,
   },
 
 

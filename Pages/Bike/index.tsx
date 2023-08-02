@@ -7,41 +7,41 @@ import {
   Poppins_500Medium,
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useBikeselector } from "../../Context/Bikeselector";
 
 
 export default function Bike({containerBike}: any) {
 
+  const {selectbike,setSelectBike} = useBikeselector();
+  
+  const [startTime, setStartTime] = useState(null)
   const [fontsLoand] = useFonts({
     Poppins_100Thin,
     Poppins_500Medium,
     Poppins_400Regular,
   });
 
-  const [startTime, setStartTime] = useState(null)
-  const [selectBike, setSelectBike] = useState([])
-
-  const DateAt = new Date();
-  const Datemin = DateAt.getMinutes();
-  const Datehors = DateAt.getHours()  
+ 
 
   function BikePay(item){
-    setSelectBike([...selectBike,item])
+    setSelectBike([...selectbike,item])
     
   }
-
-  console.log(selectBike)
 
 
   if (!fontsLoand) {
     return null;
   }
 
+
+
   return (
                  <ScrollView horizontal={true}
            showsHorizontalScrollIndicator={false}
 >
           {containerBike.map((item) => {
+            console.log(item)
             return (
               <View key={item.id} style={styles.containerItem}>
 

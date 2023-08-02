@@ -1,13 +1,14 @@
-import Home from "./Pages/Home";
-import Routes from "./src/routes";
-import { NavigationContainer } from "@react-navigation/native";
-
+import { BikeProvider } from "./Context/Bikeselector";
+import Home from "./Home";
+import Routes from "./routes/routes";
+import { NavigationContainer, } from "@react-navigation/native";
 
 export default function App() {
   return (
-   <NavigationContainer>
+    <BikeProvider>
     <Routes/>
-   </NavigationContainer>
+    </BikeProvider>
+
   );
 }
 
