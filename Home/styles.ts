@@ -18,17 +18,17 @@ export const styles = StyleSheet.create({
   cart:{
     marginLeft:255
   },
- // cartStatus:{
-  //  backgroundColor:"#ffff",
-  //  height: 18,
- //   width: 18,
- //   position:"absolute",
- //   left:321,
-  //  bottom:22,
- //   borderRadius:15,
- //   color:"#72bb79",
+  cartNumber:{
+  backgroundColor:"#ffff",
+  height: 18,
+  width: 18,
+  position:"absolute",
+  left:246,
+  bottom:22,
+  borderRadius:15,
+  color:"#72bb79",
     
- // },
+ },
   user:{
     marginLeft:50
   },

@@ -44,6 +44,7 @@ export const styles = StyleSheet.create({
 
     },
     numbers:{
+      fontSize:20,
       width:45,
       height:40,
       backgroundColor:"#D9D9D9",
@@ -77,7 +78,7 @@ export const styles = StyleSheet.create({
     marginTop:20,
     },
     phrasesletters:{
-        fontSize:22,
+        fontSize:18,
     },
     valuex:{
         fontSize:20,
@@ -102,7 +103,7 @@ export const styles = StyleSheet.create({
         flexDirection:"column",
         justifyContent:"center",
         alignItems:"center",
-        marginTop:550,
+        marginTop:580,
         marginLeft:100,
         position: 'absolute'
       }

@@ -24,7 +24,6 @@ export const BikeSelector = createContext({} as BikeSelectorProps );
 
 export const BikeProvider = ({children}: BikeProviderProps) => {
     const [selectbike, setSelectBike] = useState<any>([])
-     console.log(selectbike)
     
     return (
    <BikeSelector.Provider value={{selectbike,setSelectBike}}>

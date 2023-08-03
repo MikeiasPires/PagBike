@@ -38,7 +38,6 @@ console.log(armazenum)
   }
 
  
- 
   if (!fontsLoand) {
     return null;
   }
@@ -51,9 +50,10 @@ console.log(armazenum)
           <Text style={styles.phrasesletters}> Você pode escolher a quantidade</Text>
           <Text style={styles.phrasesletters}> de bicicletas aqui e pagar </Text>
         </View> 
+        {}
         {selectbike.map((item) => {
           return (
-            <View style={styles.containerAlign}>
+            <View key={item.id} style={styles.containerAlign}>
             <View style={styles.containerItem}>
               <Image
                 style={styles.imageItem}
@@ -71,7 +71,8 @@ console.log(armazenum)
                   keyboardType="numeric"
                 ></TextInput>
                 <Text style={styles.valuex} > X </Text>
-                <Text style={styles.value}>{item.value.toLocaleString('pt-br',{
+                <Text style={styles.value}>
+                  {armazenum.toLocaleString('pt-br',{
                   style:'currency',
                   currency:'BRL',
                 })} </Text>

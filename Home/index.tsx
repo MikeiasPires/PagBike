@@ -9,13 +9,15 @@ import {
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
 import { useNavigation } from "@react-navigation/native";
+import { useBikeselector } from "../Context/Bikeselector";
 
 
 
 export default function Home({}){
 
   const navigation = useNavigation();
-
+  const {selectbike,setSelectBike} = useBikeselector();
+  const numbercart = selectbike.map(item => item.id)
   const DateAt = new Date();
   const Datemin = DateAt.getMinutes();
   const Datehors = DateAt.getHours();
@@ -74,6 +76,7 @@ export default function Home({}){
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => navigation.navigate("cart")} >
           <Feather style={styles.cart} name="shopping-cart" size= {30} color="white"/>
+          { numbercart.length > 0 && <Text style={styles.cartNumber}> {numbercart.length}</Text>  }
         </TouchableOpacity>
         </View>
         <View>

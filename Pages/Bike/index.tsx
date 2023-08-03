@@ -41,7 +41,6 @@ export default function Bike({containerBike}: any) {
            showsHorizontalScrollIndicator={false}
 >
           {containerBike.map((item) => {
-            console.log(item)
             return (
               <View key={item.id} style={styles.containerItem}>
 
