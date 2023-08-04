@@ -9,10 +9,12 @@ import {
 import { Image } from "react-native";
 import { styles } from "../Cart/style";
 import { useBikeselector } from "../../Context/Bikeselector";
+import { Feather } from "react-native-vector-icons";
 
 export default function Cart() {
 
   const save = []
+  const [teste,setTeste] = useState('')
   const [armazenum,setarmazenum] = useState([])
   const [number,setNumber] = useState('')
   const [fontsLoand] = useFonts({
@@ -37,7 +39,7 @@ console.log(armazenum)
     }
   }
 
- 
+  
   if (!fontsLoand) {
     return null;
   }
@@ -61,7 +63,12 @@ console.log(armazenum)
               ></Image>
             </View>
             <View>
+              <View style={styles.motionName}>
               <Text style={styles.text}> {item.name} </Text>
+              <TouchableOpacity onPress={()=> console.log('ss')}>
+              <Feather  style={styles.closeIcon} name="trash" size= {25} color="black"/>
+              </TouchableOpacity>
+              </View>
               <View style={styles.values}>
                 <Text style={styles.textamount}> Valor </Text>
                 <TextInput
@@ -72,7 +79,7 @@ console.log(armazenum)
                 ></TextInput>
                 <Text style={styles.valuex} > X </Text>
                 <Text style={styles.value}>
-                  {armazenum.toLocaleString('pt-br',{
+                  {item.value.toLocaleString('pt-br',{
                   style:'currency',
                   currency:'BRL',
                 })} </Text>

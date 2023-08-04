@@ -106,6 +106,16 @@ export const styles = StyleSheet.create({
         marginTop:580,
         marginLeft:100,
         position: 'absolute'
+      },
+      motionName:{
+        display:"flex",
+        flexDirection:"row",
+        alignItems:"center",
+
+      },
+      closeIcon:{
+        marginLeft:110,
+        marginTop:30,
       }
 
 })

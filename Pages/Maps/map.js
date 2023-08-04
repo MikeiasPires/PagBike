@@ -119,5 +119,10 @@ const styles = StyleSheet.create({
       height:60,
       backgroundColor:"#ffff",
 
+  },
+  marker:{
+    width:50,
+    height:50,
+    backgroundColor:"#ffff",
   }
 })
