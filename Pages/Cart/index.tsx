@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -10,36 +10,44 @@ import { Image } from "react-native";
 import { styles } from "../Cart/style";
 import { useBikeselector } from "../../Context/Bikeselector";
 import { Feather } from "react-native-vector-icons";
+import Time from "../Time/time";
 
 export default function Cart() {
 
   const save = []
-  const [teste,setTeste] = useState('')
-  const [armazenum,setarmazenum] = useState([])
-  const [number,setNumber] = useState('')
+  const [inputValue, setInputValues] = useState([])
+  const [erasedtes, setErasedTes] = useState([])
+  const [armazenum, setarmazenum] = useState('')
   const [fontsLoand] = useFonts({
     Poppins_100Thin,
     Poppins_500Medium,
     Poppins_400Regular,
   });
-  const {selectbike,setSelectBike} = useBikeselector();
+  const { selectbike, setSelectBike } = useBikeselector();
   const valuecapture = selectbike.map(item => item.value);
-  
-console.log(armazenum)
 
-  function handlePag(numberdig){
-    setNumber(numberdig)
-    if(number !== ''){
-      let NumInt = parseInt(number)
-      for (let i = 0; i < valuecapture.length; i++){
-        const result = valuecapture[i] * NumInt
-        save.push(result)
-        setarmazenum(save)
-      }
+  function handleErased(id) {
+    
+    const indexToRemove = selectbike.findIndex(item => item.id === id)
+    if(indexToRemove !== -1 ){
+      const newItem = [...selectbike];
+      newItem.splice(indexToRemove, 1 );
+      setSelectBike(newItem)
     }
+
   }
 
-  
+
+  const handleTextChange = (id, newValue, value) => {
+    setInputValues(prevInputValues =>
+      prevInputValues.map(item =>
+        item.id === id ? { ...item, value: newValue } : item
+      )
+    );
+
+  };
+
+
   if (!fontsLoand) {
     return null;
   }
@@ -51,48 +59,60 @@ console.log(armazenum)
         <View style={styles.lettertop}>
           <Text style={styles.phrasesletters}> Você pode escolher a quantidade</Text>
           <Text style={styles.phrasesletters}> de bicicletas aqui e pagar </Text>
-        </View> 
-        {}
+        </View>
+       
+        {selectbike.length === 0 && <Time />}
+<ScrollView 
+showsVerticalScrollIndicator={false}>
         {selectbike.map((item) => {
           return (
             <View key={item.id} style={styles.containerAlign}>
-            <View style={styles.containerItem}>
-              <Image
-                style={styles.imageItem}
-                source={item.imagepag}
-              ></Image>
-            </View>
-            <View>
-              <View style={styles.motionName}>
-              <Text style={styles.text}> {item.name} </Text>
-              <TouchableOpacity onPress={()=> console.log('ss')}>
-              <Feather  style={styles.closeIcon} name="trash" size= {25} color="black"/>
-              </TouchableOpacity>
+              <View style={styles.containerItem}>
+                <Image
+                  style={styles.imageItem}
+                  source={item.imagepag}
+                ></Image>
               </View>
-              <View style={styles.values}>
-                <Text style={styles.textamount}> Valor </Text>
-                <TextInput
-                  onChangeText={handlePag}
-                  value={number}
-                  style={styles.numbers}
-                  keyboardType="numeric"
-                ></TextInput>
-                <Text style={styles.valuex} > X </Text>
-                <Text style={styles.value}>
-                  {item.value.toLocaleString('pt-br',{
-                  style:'currency',
-                  currency:'BRL',
-                })} </Text>
+              <View>
+                <View style={styles.motionName}>
+                  <Text style={styles.text}> {item.name} </Text>
+                  <TouchableOpacity onPress={() => handleErased(item.id)}>
+                    <Feather style={styles.closeIcon} name="trash" size={25} color="black" />
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.values}>
+                  <Text style={styles.textamount}> Valor </Text>
+                  <TextInput
+                    onChangeText={newValue => handleTextChange(item.id, newValue, item.value)}
+                    value={item.value}
+                    style={styles.numbers}
+                    keyboardType="numeric"
+                  ></TextInput>
+                  <Text style={styles.valuex} > X </Text>
+                  <Text style={styles.value}>
+                    {armazenum.toLocaleString('pt-br', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    })}
+
+                    {armazenum == 0 && <Text style={styles.value}>
+                      {item.value.toLocaleString('pt-br', {
+                        style: 'currency',
+                        currency: 'BRL',
+                      })} </Text>}
+
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
           )
         })}
-            <View style={styles.buttonMove}>
-            <TouchableOpacity  onPress={()=> console.log('')} style={styles.button}>
+        </ScrollView>
+        <View style={styles.buttonMove}>
+          <TouchableOpacity onPress={() => console.log('')} style={styles.button}>
             <Text style={styles.buttonText}>Concluir compra</Text>
-            </TouchableOpacity>
-            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
