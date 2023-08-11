@@ -9,6 +9,7 @@ interface Bikeprops{
       image:number,
       imagepag:number,
       Hors:string,
+      calculatedValue: number;
 }
 
 interface BikeSelectorProps{

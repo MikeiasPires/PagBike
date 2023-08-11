@@ -5,7 +5,7 @@ import { View, Text, StyleSheet} from 'react-native';
 export default function Time() {
   return(
     <View style={styles.container}>
-      <Text styLe={styles.text}> TIme </Text>
+      <Text styLe={styles.text}> Não a nenhuma bicicleta no momento </Text>
       </View>
    )
 }
