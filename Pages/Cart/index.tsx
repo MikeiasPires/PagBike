@@ -43,16 +43,9 @@ export default function Cart() {
   const handleTextChange = (id, newValue, value, index) => {
     setInputValues((prevInputValues) =>
       prevInputValues.map((item) =>
-        item.id === id ? { ...item, value: newValue } : item
+        item.id === id ? { ...item, quantity: newValue } : item
       )
-    );
-   const valueSom = value * newValue
-   const convertMoney = valueSom.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  });
-  setarmazenum(convertMoney)
+      );
   };
 
   if (!fontsLoand) {
@@ -73,7 +66,6 @@ export default function Cart() {
             de bicicletas aqui e pagar{" "}
           </Text>
         </View>
-
         {selectbike.length === 0 && <Time />}
         <ScrollView showsVerticalScrollIndicator={false}>
           {selectbike.map((item, index) => {
@@ -109,7 +101,7 @@ export default function Cart() {
                     ></TextInput>
                     <Text style={styles.valuex}> X </Text>
                     <Text style={styles.value}>
-                    {armazenum}
+                    {item.value * item.quantity}
                     </Text>
                   </View>
                 </View>
